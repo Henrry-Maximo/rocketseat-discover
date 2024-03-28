@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* variáveis no css */
+:root {
+    --text-color: white;
+    --bg-url: url(./assets/img/bg-mobile.jpg);
+    --stroke-color: rgb(218, 218, 218);
+    --surface-color: rgba(255, 255, 255, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url(./assets/img/moon-stars.svg);
+}
+
+.light {
+    --text-color: rgb(0, 0, 0);
+    --bg-url: url(./assets/img/bg-mobile-light.jpg);
+    --stroke-color: rgb(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(./assets/img/sun.svg);
+}
+
+/* Seletor Body */
+body {
+    /* background-image: url("./assets/img/bg-desktop.png"); */
+    /* background-repeat: no-repeat; */
+    /* SEM REPETIR A IMAGEM */
+    /* background-position: top center; */
+    /* CENTRALIZAR - EIXO: X & Y */
+    /* background-size: cover; */
+    /* COBRIR TODA ÁREA */
+
+    /* ATALHO */
+    background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+    font-family: "Ubuntu", sans-serif;
+    color: var(--text-color);
+}
+
+#container {
+    width: 360px;
+    margin: 56px auto 0px;
+    padding: 0px 24px;
+}
+
+/* Elemento Pai */
+#profile {
+    text-align: center;
+    padding: 24px;
+}
+
+#profile img {
+    width: 112px;
+    margin: auto;
+}
+
+#profile p {
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+#switch {
+    /* alinhando elemento do button absolute */
+    position: relative;
+    width: 64px;
+
+    /* alinhamento de display block */
+    margin: 4px auto;
+}
+
+/* switch */
+#switch button {
+    width: 32px;
+    height: 32px;
+    background: white var(--switch-bg-url) no-repeat center;
+    border: 1px solid gray;
+    border-radius: 50%;
+    
+
+    /* nova camada, permite navegador em toda a página */
+    position: absolute;
+    /* se basear no transform para posicionar no meio */
+    top: 50%;
+    left: 0;
+    /* utilizar por andares */
+    z-index: 1;
+    /* estrategia de alinhar posicionamentos absolutos */
+    transform: translateY(-50%);
+
+    animation: slide-back .2s;
+}
+
+.light #switch button {
+    animation: slide-in .2s forwards;
+    /* right: 0; */
+    /* volta pra maneira inicial */
+    /* left: initial; */
+}
+
+#switch button:hover {
+    outline: 8px solid var(--highlight-color);
+}
+
+#switch span {
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
+/* links */
+ul {
+    /* ocultar bolinhas */
+    list-style: none;
+    /* se encaixar de forma flexível, um do lado do outro */
+    display: flex;
+    /* formato de coluna / formato padrão em linha */
+    flex-direction: column;
+    /* espaçamento entre elementos */
+    gap: 16px;
+    padding: 24px 0;
+}
+
+ul li a {
+    /* se encaixar de forma flexível, um do lado do outro */
+    display: flex;
+    /* alinhar ao eixo - y */
+    justify-content: center;
+    /* alinhar ao eixo - x */
+    align-items: center;
+
+    /* cima-baixo: 16px & esquerda-direita: 24px */
+    padding: 16px 24px;
+
+    /* red / green / blue / alfa (opacidade) */
+    background: var(--surface-color);
+
+    /* circular borda */
+    border: 1px solid var(--stroke-color);
+
+    /* arredondamento de borda */
+    border-radius: 8px;
+
+    /* borrar o fundo */
+    backdrop-filter: blur(8px);
+
+    /* suporte para navegadores safari */
+    -webkit-backdrop-filter: blur(8px);
+
+    /* ocultar linha do link */
+    /* text-decoration: line-through; - linha no meio */
+    /* text-decoration: overline; - linha em cima */
+    /* text-decoration: underline; - linha em cima */
+
+    text-decoration: none;
+    font-weight: 500;
+
+    /* transição aplicada ao fundo do elemento */
+    transition: background 0.5s;
+}
+
+/* pseudo-selector */
+ul li a:hover {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1.5px solid white;
+}
+
+#social-links {
+    /* utilizando display flex para habilitar o gap */
+    display: flex;
+    /* gap: 16px; */
+    justify-content: center;
+    font-size: 24px;
+    padding: 24px 0;
+}
+
+#social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    transition: background 0.2s;
+    /* um círculo perfeito */
+    border-radius: 50%;
+}
+
+#social-links a:hover{
+    background: var(--stroke-color);
+}
+
+footer {
+    padding: 24px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* media queries */
+
+/* animation */
+@keyframes slide-in {
+    from { left:0;}
+    to {left: 50%;}
+}
+
+@keyframes slide-back {
+    from { left: 50%;}
+    to {left: 0;}
+}
