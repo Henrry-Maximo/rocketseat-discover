@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -6,8 +7,16 @@
 
 /* variáveis no css */
 :root {
-    --text-color: white;
-    --bg-url: url(./assets/img/bg-mobile.jpg);
+    --gray-700: #0d0d0d;
+    --gray-600: #1a1a1a;
+    --gray-500: #262626;
+    --gray-400: #333333;
+    --gray-300: #808080;
+    --gray-200: #d9d9d9;
+    --gray-100: #f2f2f2;
+
+    --text-color: var(--gray-100);
+    --bg-url: var(--gray-700);
     --stroke-color: rgb(218, 218, 218);
     --surface-color: rgba(255, 255, 255, 0.05);
     --surface-color-hover: rgba(0, 0, 0, 0.02);
@@ -16,8 +25,8 @@
 }
 
 .light {
-    --text-color: rgb(0, 0, 0);
-    --bg-url: url(./assets/img/bg-mobile-light.jpg);
+    --text-color: var(--gray-700);
+    --bg-url: var(--gray-100);
     --stroke-color: rgb(0, 0, 0, 0.5);
     --surface-color: rgba(0, 0, 0, 0.05);
     --surface-color-hover: rgba(0, 0, 0, 0.02);
@@ -36,7 +45,13 @@ body {
     /* COBRIR TODA ÁREA */
 
     /* ATALHO */
-    background: var(--bg-url) no-repeat top center/cover;
+    /* background: var(--gray-600) no-repeat top center/cover; */
+    background: var(--bg-url);
+    color: var(--text-color);
+
+    /* proriedade semelhantes / chrome && firefox */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body * {
@@ -83,7 +98,7 @@ body * {
     background: white var(--switch-bg-url) no-repeat center;
     border: 1px solid gray;
     border-radius: 50%;
-    
+
 
     /* nova camada, permite navegador em toda a página */
     position: absolute;
@@ -196,7 +211,7 @@ ul li a:hover {
     border-radius: 50%;
 }
 
-#social-links a:hover{
+#social-links a:hover {
     background: var(--stroke-color);
 }
 
@@ -210,11 +225,21 @@ footer {
 
 /* animation */
 @keyframes slide-in {
-    from { left:0;}
-    to {left: 50%;}
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 50%;
+    }
 }
 
 @keyframes slide-back {
-    from { left: 50%;}
-    to {left: 0;}
+    from {
+        left: 50%;
+    }
+
+    to {
+        left: 0;
+    }
 }

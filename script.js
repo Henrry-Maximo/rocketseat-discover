@@ -9,10 +9,10 @@ function toggleMode() {
   if (html.classList.contains('light')) {
     // utilizar o atributo "setAttribute" para especificar o elemento que deve ser alterado
     // inserir dois parâmetros: qual e onde...
-    img.setAttribute("src", "./assets/img/moon-stars.svg")
+    img.setAttribute("src", "./assets/img/perfil-hacker.png")
     img.setAttribute("alt", "teste")
   } else {
-    img.setAttribute("src", "./assets/img/sun.svg")
+    img.setAttribute("src", "./assets/img/perfil-hacker-2.png")
     img.setAttribute("alt", "teste 2")
   }
 
